@@ -11,7 +11,7 @@ public class ArmstrongNumber {
         int c = num;
         while (num > 0) {
             r = num % 10;
-            arm = (r * r * r) + arm;
+            arm = (r * r * r * r) + arm;
             num = num / 10;
         }
         if (c == arm)
