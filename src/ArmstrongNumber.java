@@ -1,22 +1,28 @@
-import javax.swing.*;
 import java.util.Scanner;
-
 public class ArmstrongNumber {
     public static void main(String[] args) {
-        int r = 0;
-        int arm = 0;
-        System.out.println("Enter the number to check ");
         Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        int c = num;
-        while (num > 0) {
-            r = num % 10;
-            arm = (r * r * r * r) + arm;
-            num = num / 10;
+        System.out.println("Enter a number: ");
+        int a = sc.nextInt();
+        System.out.print("Entered number " + a);
+        int b = a, c = a;
+        int length = 0, rem, arm = 0;
+        while (a != 0) {
+            length += 1;
+            a = a / 10;
         }
-        if (c == arm)
-            System.out.println("the number is armstrong");
-        else
-            System.out.println("the number is not armstrong");
+        while (b != 0) {
+            rem = b % 10;
+            int multi = 1;
+            for (int i = 0; i < length; i++) {
+                multi *= rem;
+            }
+            arm += multi;
+            b = b / 10;
+        }
+        if (c == arm) {
+            System.out.print(" is an armstrong number.");
+        } else System.out.print(" is not an armstrong number.");
+
     }
 }
